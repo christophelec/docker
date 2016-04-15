@@ -1,12 +1,10 @@
-FROM debian:8.2
+FROM anapsix/alpine-java:jre8
 
-MAINTAINER Fai Fung <ffung@xebia.com>
+MAINTAINER Chritophe Lecointe <christophe.lecointe@tuta.io>
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre-headless unzip wget --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk upgrade --update && apk add wget unzip
 
-ENV version 5.1.3
+ENV version 5.1.4
 RUN wget -q https://dist.xebialabs.com/public/trial/xl-deploy/xl-deploy-${version}-server-trial-edition.zip -O /tmp/xld.zip && \
     unzip -q /tmp/xld.zip -d /opt && \
     rm /tmp/xld.zip
