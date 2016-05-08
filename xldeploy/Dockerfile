@@ -4,7 +4,7 @@ MAINTAINER Chritophe Lecointe <christophe.lecointe@tuta.io>
 
 RUN apk upgrade --update && apk add wget unzip
 
-ENV version 5.1.4
+ENV version 5.5.0
 RUN wget -q https://dist.xebialabs.com/public/trial/xl-deploy/xl-deploy-${version}-server-trial-edition.zip -O /tmp/xld.zip && \
     unzip -q /tmp/xld.zip -d /opt && \
     rm /tmp/xld.zip
